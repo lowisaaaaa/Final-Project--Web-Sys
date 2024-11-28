@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PanSite Delights</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <div class="container">
+      <header class="navbar" id="navbar">
+        <div class="nav-left">
+          <div class="logo">
+            <img src="./img/logo.png" alt="Logo Image" class="logo-image" />
+           
+            <span class="name-text">PanSite</span>Delights</span></span>
+          </div>
+        </div>
+
+        <div class="offer">
+          <span class="offer-text">We've got you covered for any holiday, special occasion, or cause for celebration.</span>
+        </div>
+
+ <!-- Shopping Cart Section -->
+<div class="cart">
+  <div class="cart-icon" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </div>
+</div>
+
+<!-- Cart Modal Popup -->
+<div id="cart-modal" class="cart-modal">
+  <div class="cart-content">
+    <h3>Shopping Cart</h3>
+    <div id="cart-items"></div>
+    <p id="cart-total">Total: P00.00</p>
+    <button onclick="checkout()" >Proceed to Checkout</button>
+    <button onclick="toggleCart()" >Close</button>
+  </div>
+</div>
+
+
+<!-- Buyer Information Modal -->
+<div id="buyer-info-modal" class="modal" >
+  <div class="modal-content">
+    <h3>Buyer Information</h3>
+    <form id="buyer-info-form">
+      <label for="buyer-name">Name:</label>
+      <input type="text" id="buyer-name" placeholder="Enter your name" required />
+      <label for="pickup-datetime">Pick-up Date and Time:</label>
+      <input type="datetime-local" id="pickup-datetime" required />
+      <div>
+        <button type="button" onclick="backToCart()" >Back</button>
+        <button type="submit" >Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- Bill Display Section -->
+<div id="bill-container" class="modal" >
+  <div class="modal-content">
+    <h3>Bill Summary</h3>
+    <p id="bill-name"></p>
+    <p id="bill-datetime"></p>
+    <p id="bill-total"></p>
+    <button onclick="closeBill()" >Close</button>
+  </div>
+</div>
+
+      </header>
+      <main class="content">
+        <section>
+          <!-- Content goes here -->
+          <div class="header_heading">
+            <h1><span class="color-text">PanSite Delights </span> offers the best cakes and sweets for you.</h1>
+
+          </div>
+
+          <div class="header_img">
+            <img src="./img/Header_Image.png" alt="header-image">
+          </div>
+
+          <div class="header_heading">
+            
+            <h1><span class="color-text">Discover the Future of Baking </span> - Order Original or<span>Tailored Creations Online.</span> </h1>
+          </div>
+        </section>
+
+        <div class="shop-by-category">
+          <h2>Explore Our Pastries</h2>
+        </div>
+
+        <div class="category-slider">
+          <button class="arrow left-arrow"><i
+              class="fas fa-chevron-left"></i></button>
+          <div class="slider-wrapper">
+            <div class="slider">
+              <!-- Category Cards -->
+              <div class="category-card" data-section="cakes-section">
+                <div class="category_image">
+                  <img src="./img/cakewall.jpg" alt="Cakes">
+                </div>
+                <h3>Cakes</h3>
+                <p>12 Flavors</p>
+              </div>
+              <div class="category-card" data-section="cake rolls-section">
+                <div class="category_image">
+                  <img src="./img/roll wall.jpg" alt="Cake Rolls">
+                </div>
+                <h3>Cake Rolls</h3>
+                <p>10 Flavors</p>
+              </div>
+              <div class="category-card" data-section="cookies-section">
+                <div class="category_image">
+                  <img src="./img/cookiewall.jpg" alt="Cookies">
+                </div>
+                <h3>Cookies</h3>
+                <p>8 Flavors</p>
+              </div>
+              <div class="category-card" data-section="cupcakes-section">
+                <div class="category_image">
+                  <img src="./img/cupcake wall.jpg" alt="Cupcakes">
+                </div>
+                <h3>Cupcakes</h3>
+                <p>9 Flavors</p>
+              </div>
+              <div class="category-card" data-section="breads-section">
+                <div class="category_image">
+                  <img src="./img/breadwall.png" alt="Breads">
+                </div>
+                <h3>Breads</h3>
+                <p>6 Varieties</p>
+              </div>
+              <div class="category-card" data-section="donuts-section">
+                <div class="category_image">
+                  <img src="./img/donutwall.jpg" alt="Donuts">
+                </div>
+                <h3>Donuts</h3>
+                <p>7 Flavors</p>
+              </div>
+              <div class="category-card" data-section="Toppings and Sizes for Cake-section">
+                <div class="category_image">
+                  <img src="./img/toppingswall.jpg" alt="Toppings and Sizes for Cake">
+                </div>
+                <h3>Toppings & Sizes for Cake</h3>
+                <p>5 Varieties & 3 Sizes</p>
+              </div>
+              <div class="category-card" data-section="Toppers for Cake-section">
+                <div class="category_image">
+                  <img src="./img/topperswall.jpg" alt="Toppers for Cake">
+                </div>
+                <h3>Toppers for Cake</h3>
+                <p>8 Items</p>
+              </div>
+              <div class="category-card" data-section="Candle Numbers for Cake-section">
+                <div class="category_image">
+                  <img src="./img/Numbertopper.jpg" alt="Candle Number for Cake">
+                </div>
+                <h3>Candle Number for Cake</h3>
+                <p>10 Numbers</p>
+              </div>
+            </div>
+          </div>
+          <button class="arrow right-arrow"><i
+              class="fas fa-chevron-right"></i></button>
+        </div>
+
+  <!-- Product Sections for Each Category (hidden by default) -->
+  <div id="cakes-section" class="product-section hidden">
+    <h2>Cakes</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/chocolate.jpg" alt="Chocolate Cake">
+        </div>
+        <h4>Chocolate Cake</h4>
+        <p>₱550.50</p>
+        <button class="add-to-cart-button" data-name="Chocolate Cake"
+          data-price="550.50">
+          Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/strawberry.jpg" alt="Strawberry Cake">
+        </div>
+        <h4>Strawberry Cake</h4>
+        <p>₱699.80</p>
+        <button class="add-to-cart-button" data-name="Strawberry Cake"
+          data-price="699.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/vanilla.jpg" alt="Vanilla Cake">
+        </div>
+        <h4>Vanilla Cake</h4>
+        <p>₱550.40</p>
+        <button class="add-to-cart-button" data-name="Vanilla Cake"
+          data-price="550.40"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/mocha.jpg" alt>
+        </div>
+        <h4>Mocha Cake</h4>
+        <p>₱560.80</p>
+        <button class="add-to-cart-button" data-name="Mocha Cake"
+          data-price="560.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/redvelvet.jpg" alt>
+        </div>
+        <h4>Red Velvet</h4>
+        <p>₱520.40</p>
+        <button class="add-to-cart-button" data-name="Red Velvet"
+          data-price="520.40"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/carrot.jpg" alt>
+        </div>
+        <h4>Carrot Cake</h4>
+        <p>₱500.20</p>
+        <button class="add-to-cart-button" data-name="Carrot Cake"
+          data-price="500.20"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/ube.jpg" alt>
+        </div>
+        <h4>Ube Flavor</h4>
+        <p>₱560.40</p>
+        <button class="add-to-cart-button" data-name="Ube Flavor"
+          data-price="560.40">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/blueberry.jpg" alt>
+        </div>
+        <h4>Blueberry Cake</h4>
+        <p>₱700.00</p>
+        <button class="add-to-cart-button" data-name="Blueberry Cake"
+          data-price="700.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/blackforest.jpg" alt>
+        </div>
+        <h4>Black Forest Cake</h4>
+        <p>₱710.80</p>
+        <button class="add-to-cart-button" data-name="Black Forest Cake"
+          data-price="710.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/cookiesandcream.JPG" alt>
+        </div>
+        <h4>Cookies & Cream Cake</h4>
+        <p>₱590.30</p>
+        <button class="add-to-cart-button" data-name="Cookies & Cream Cake"
+          data-price="590.30">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/mangograham.jpg" alt>
+        </div>
+        <h4>Mango Graham Cake</h4>
+        <p>₱700.00</p>
+        <button class="add-to-cart-button" data-name="Mango Graham Cake"
+          data-price="700.00">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/coffeecake.jpg" alt>
+        </div>
+        <h4>Coffee Cake</h4>
+        <p>₱560.80</p>
+        <button class="add-to-cart-button" data-name="Coffee Cake"
+          data-price="560.80"> Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cake rolls-section" class="product-section hidden">
+    <h2>Cake Rolls</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product_image"><img src="./img/chocolater.jpg"
+            alt="Chocolate Rolls"></div>
+        <h4>Chocolate Rolls</h4>
+        <p>₱220.50</p>
+        <button class="add-to-cart-button" data-name="Chocolate Rolls"
+          data-price="220.50"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image"><img src="./img/vanillar.jpg"
+            alt="Vanilla Rolls"></div>
+        <h4>Vanilla Rolls</h4>
+        <p>₱270.40</p>
+        <button class="add-to-cart-button" data-name="Vanilla Rolls"
+          data-price="270.40"> Add to Cart</button>
+
+      </div>
+
+      <div class="product-card">
+        <div class="product_image"><img src="./img/mochar.png"
+            alt="Mocha Rolls"></div>
+        <h4>Mocha Rolls</h4>
+        <p>₱330.50</p>
+        <button class="add-to-cart-button" data-name="Mocha Rolls"
+          data-price="330.50"> Add to Cart</button>
+
+      </div>
+
+      <div class="product-card">
+        <div class="product_image"><img src="./img/redvelvetr.jpg"
+            alt="Red Velvet Rolls"></div>
+        <h4>Red Velvet Rolls</h4>
+        <p>₱290.88</p>
+        <button class="add-to-cart-button" data-name="Red Velvet Rolls"
+          data-price="290.88"> Add to Cart</button>
+
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/carrotr.jpg" alt="Carrot Rolls">
+        </div>
+        <h4>Carrot Rolls</h4>
+        <p>₱340.10</p><button class="add-to-cart-button"
+          data-name="Carrot Rolls" data-price="340.50"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image"><img src="./img/uber.jpg"
+            alt="Ube Rolls"></div>
+        <h4>Ube Rolls</h4>
+        <p>₱350.30</p><button class="add-to-cart-button" data-name="Ube Rolls"
+          data-price="350.30"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/blueberryr.jpg" alt="Blueberry Rolls">
+        </div>
+        <h4>Blueberry Rolls</h4>
+        <p>₱360.40</p><button class="add-to-cart-button"
+          data-name="Blueberry Rolls" data-price="360.40"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image"><img src="./img/blackforestr.jpg"
+            alt="Black Forest Rolls"></div>
+        <h4>Black Forest Rolls</h4>
+        <p>₱350.40</p><button class="add-to-cart-button" data-name="Black Forest Rolls"
+          data-price="350.40"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image"><img src="./img/mangor.jpg"
+            alt="Mango Graham Rolls"></div>
+        <h4>Mango Graham Rolls</h4>
+        <p>₱340.45</p><button class="add-to-cart-button" data-name="Mango Graham Rolls"
+          data-price="340.45"> Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image"><img
+            src="./img/coffeer.jpg" alt="Coffee Rolls"></div>
+        <h4>Coffee Rolls</h4>
+        <p>₱330.45</p><button class="add-to-cart-button" data-name="Coffee Rolls" data-price="330.45">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookies-section" class="product-section hidden">
+    <h2>Cookies</h2>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/chocolatechunks.jpg" alt="Chocolate Chunk Cookie">
+        </div>
+        <h4>Chocolate Chunk Cookie</h4>
+        <p>₱55.45</p><button class="add-to-cart-button" data-name="Chocolate Chunk Cookie"
+          data-price="55.45"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/rockyroadcookie.png" alt="Rocky Road Cookie">
+        </div>
+        <h4>Rocky Road Cookie</h4>
+        <p>₱60.08</p><button class="add-to-cart-button" data-name="Rocky Road Cookie"
+          data-price="60.08"> Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/triplecookie.png" alt="Triple Chocolate Cookie">
+        </div>
+        <h4>Triple Chocolate Cookie</h4>
+        <p>₱63.45</p><button class="add-to-cart-button" data-name="Triple Chocolate Cookie"
+          data-price="63.45">Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/oatcookie.png" alt="Oatmeal Raisin Cookie">
+        </div>
+        <h4>Oatmeal Raisin Cookie</h4>
+        <p>₱60.45</p><button class="add-to-cart-button" data-name="Oatmeal Raisin Cookie"
+          data-price="60.45">Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/lotuscookie.jpg" alt="Lotus Biscoff Cookie">
+        </div>
+        <h4>Lotus Biscoff Cookie</h4>
+        <p>₱65.45</p><button class="add-to-cart-button" data-name="Lotus Biscoff Cookie"
+          data-price="65.45"> Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/peanutcookie.jpg" alt="Peanut Butter Cookie">
+        </div>
+        <h4>Peanut Butter Cookie</h4>
+        <p>₱65.75</p><button class="add-to-cart-button" data-name="Peanut Butter Cookie"
+          data-price="65.75">Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/smorescookies.jpg" alt="Smores Cookie">
+        </div>
+        <h4>Smores Cookie</h4>
+        <p>₱70.45</p><button class="add-to-cart-button" data-name="Smores Cookie"
+          data-price="70.45"> Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/chocomint.jpg" alt="Chocolate Mint Cookie">
+        </div>
+        <h4>Chocolate Mint Cookie</h4>
+        <p>₱60.45</p><button class="add-to-cart-button" data-name="Chocolate Mint Cookie"
+          data-price="60.45"> Add to
+          Cart</button>
+      </div>
+      <!-- More products... -->
+    </div>
+  </div>
+
+  <div id="cupcakes-section" class="product-section hidden">
+    <h2>Cupcakes</h2>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/carrotc.png" alt="Carrot Cupcake">
+        </div>
+        <h4>Carrot Cupcake</h4>
+        <p>₱25.90</p>
+        <button class="add-to-cart-button" data-name="Carrot Cupcake"
+          data-price="25.90">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/redvelvetc.jpg" alt="Red Velvet Cupcake">
+        </div>
+        <h4>Red Velvet Cupcake</h4>
+        <p>₱27.80</p>
+        <button class="add-to-cart-button" data-name="Red Velvet Cupcake"
+          data-price="27.80">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/vanillac.jpg" alt="Vanilla Cupcake">
+        </div>
+        <h4>Vanilla Cupcake</h4>
+        <p>₱25.40</p>
+        <button class="add-to-cart-button" data-name="Vanilla Cupcake"
+          data-price="25.40"> Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/chocolatec.jpg" alt>
+        </div>
+        <h4>Chocolate Cupcake</h4>
+        <p>₱25.80</p>
+        <button class="add-to-cart-button" data-name="Chocolate Cupcake"
+          data-price="25.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/smoresc.jpg" alt="Smores Cupcake">
+        </div>
+        <h4>Smores Cupcake</h4>
+        <p>₱30.80</p>
+        <button class="add-to-cart-button" data-name="Smores Cupcake"
+          data-price="30.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/lemonc.jpg" alt>
+        </div>
+        <h4>Lemon Drop Cupcake</h4>
+        <p>₱30.80</p>
+        <button class="add-to-cart-button" data-name="Lemon Drop Cupcake"
+          data-price="30.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/oreoc.jpg" alt>
+        </div>
+        <h4>Oreo Cupcake</h4>
+        <p>₱28.80</p>
+        <button class="add-to-cart-button" data-name="Oreo Cupcake"
+          data-price="28.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/mochac.jpg" alt>
+        </div>
+        <h4>Mocha Cupcake</h4>
+        <p>₱25.80</p>
+        <button class="add-to-cart-button" data-name="Mocha Cupcake"
+          data-price="25.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/triplec.jpg" alt>
+        </div>
+        <h4>Triple Chocolate Cupcake</h4>
+        <p>₱29.80</p>
+        <button class="add-to-cart-button" data-name="Triple Chocolate Cupcake"
+          data-price="29.80">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="breads-section" class="product-section hidden">
+    <h2>Breads</h2>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/wheatbread.jpg" alt="Wheat Bread">
+        </div>
+        <h4>Wheat Bread</h4>
+        <p>₱59.90</p>
+        <button class="add-to-cart-button" data-name="Wheat Bread"
+          data-price="59.90"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/croissant.jpg" alt="Croissant">
+        </div>
+        <h4>Croissant</h4>
+        <p>₱85.82</p>
+        <button class="add-to-cart-button" data-name="Croissant"
+          data-price="85.82"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/bagels.jpg" alt="Bagels">
+        </div>
+        <h4>Bagel</h4>
+        <p>₱85.82</p>
+        <button class="add-to-cart-button" data-name="Bagels"
+          data-price="85.82"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/baguette.jpg" alt="Baguette">
+        </div>
+        <h4>Baguette</h4>
+        <p>₱125.43</p>
+        <button class="add-to-cart-button" data-name="Baguette"
+          data-price="125.43">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/sourdough.jpg" alt="Sourdough">
+        </div>
+        <h4>Sourdough</h4>
+        <p>₱190.00</p>
+        <button class="add-to-cart-button" data-name="Sourdough"
+          data-price="190.00"> Add to
+          Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/pretzel.jpg" alt="Pretzel">
+        </div>
+        <h4>Pretzel</h4>
+        <p>₱85.80</p>
+        <button class="add-to-cart-button" data-name="Pretzel"
+          data-price="1.80">Add to Cart</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="donuts-section" class="product-section hidden">
+    <h2>Donuts</h2>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/chocobutternut.jpg" alt="Choco Butternut">
+        </div>
+        <h4>Choco Butternut</h4>
+        <p>₱30.90</p>
+        <button class="add-to-cart-button" data-name="Choco Butternut"
+          data-price="30.90"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/blackforestd.jpg" alt="Black Forest">
+        </div>
+        <h4>Black Forest</h4>
+        <p>₱30.82</p>
+        <button class="add-to-cart-button" data-name="Black Forest"
+          data-price="30.82"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/supremerockyroad.jpg" alt="Supreme Rocky Road">
+        </div>
+        <h4>Supreme Rocky Road</h4>
+        <p>₱40.43</p>
+        <button class="add-to-cart-button" data-name="BSupreme Rocky Road"
+          data-price="40.43"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/glazed.jpg" alt="Glazed Donut">
+        </div>
+        <h4>Glazed Donut</h4>
+        <p>₱35.00</p>
+        <button class="add-to-cart-button" data-name="Glazed Donut"
+          data-price="35.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/boston kreme.jpg" alt="Boston Kreme">
+        </div>
+        <h4>Boston Kreme</h4>
+        <p>₱38.80</p>
+        <button class="add-to-cart-button" data-name="Boston Kreme"
+          data-price="38.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/bavariand.jpg" alt="Bavarian Cream Donut">
+        </div>
+        <h4>Bavarian Cream Donut</h4>
+        <p>₱45.80</p>
+        <button class="add-to-cart-button" data-name="Bavarian Cream Donut"
+          data-price="45.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/strawberryd.jpg" alt="Strawberry Filled Donut">
+        </div>
+        <h4>Strawberry Filled Donut</h4>
+        <p>₱45.80</p>
+        <button class="add-to-cart-button" data-name="Strawberry Filled Donut"
+          data-price="45.80"> Add to Cart</button>
+      </div>
+
+    </div>
+
+  </div>
+  
+  <div id="Toppings and Sizes for Cake-section" class="product-section hidden">
+    <h2>Toppings and Sizes for Cake</h2>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/small.jpg" alt="Small Size Cake">
+        </div>
+        <h4>Small Size Cake</h4>
+        <p>₱1.00</p>
+        <button class="add-to-cart-button" data-name="Small Size Cake"
+          data-price="1.90"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/medium.jpg" alt="Medium Size Cake">
+        </div>
+        <h4>Medium Size Cake</h4>
+        <p>₱1.82</p>
+        <button class="add-to-cart-button" data-name="Medium Size Cake"
+          data-price="1.82"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/large.jpg" alt="Large Size Cake">
+        </div>
+        <h4>Large Size Cake</h4>
+        <p>₱1.43</p>
+        <button class="add-to-cart-button" data-name="Large Size Cake"
+          data-price="1.43"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/choco ganache.jpg" alt="Chocolate Ganache">
+        </div>
+        <h4>Chocolate Ganache</h4>
+        <p>₱100.00</p>
+        <button class="add-to-cart-button" data-name="Chocolate Ganache"
+          data-price="100.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/toasted peanut.jpg" alt="Toasted Peanuts">
+        </div>
+        <h4>Toasted Peanuts</h4>
+        <p>₱70.80</p>
+        <button class="add-to-cart-button" data-name="Toasted Peanuts"
+          data-price="70.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/cream cheese.jpg" alt="Cream Cheese">
+        </div>
+        <h4>Cream Cheese</h4>
+        <p>₱80.80</p>
+        <button class="add-to-cart-button" data-name="Cream Cheese"
+          data-price="80.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/fresh fruit.jpg" alt="Fresh Fruit">
+        </div>
+        <h4>Fresh Fruit</h4>
+        <p>₱100.80</p>
+        <button class="add-to-cart-button" data-name="Fresh Fruit"
+          data-price="100.80"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/sprinkles.jpg" alt="Sprinkles">
+        </div>
+        <h4>Sprinkles</h4>
+        <p>₱65.80</p>
+        <button class="add-to-cart-button" data-name="Sprinkles"
+          data-price="65.80"> Add to Cart</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="Toppers for Cake-section" class="product-section hidden">
+    <h2>Toppers</h2>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/hbd.jpg" alt="Happy Birthday!">
+        </div>
+        <h4>Happy Birthday!</h4>
+        <p>₱1.90</p>
+        <button class="add-to-cart-button" data-name="Happy Birthday!"
+          data-price="1.90"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/happyholidays.png" alt="Happy Holidays!">
+        </div>
+        <h4>Happy Holidays!</h4>
+        <p>₱50.00</p>
+        <button class="add-to-cart-button" data-name="Happy Holidays!"
+          data-price="50.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/merrychristmas.jpg" alt="Merry Christmas!">
+        </div>
+        <h4>Merry Christmas!</h4>
+        <p>₱50.00</p>
+        <button class="add-to-cart-button" data-name="Merry Christmas!"
+          data-price="50.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/anniv.jpg" alt="Happy Anniversary!">
+        </div>
+        <h4>Happy Anniversary!</h4>
+        <p>₱50.00</p>
+        <button class="add-to-cart-button" data-name="Happy Anniversary!"
+          data-price="50.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/mothersday.jpg" alt="Happy Mother's Day!">
+        </div>
+        <h4>Happy Mother's Day!</h4>
+        <p>₱50.00</p>
+        <button class="add-to-cart-button" data-name="Happy Mother's Day!"
+          data-price="50.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/fathersday.jpg" alt="Happy Father's Day!">
+        </div>
+        <h4>Happy Father's Day!</h4>
+        <p>₱50.00</p>
+        <button class="add-to-cart-button" data-name="Happy Father's Day!"
+          data-price="50.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/happy christening.png" alt="Happy Christening!">
+        </div>
+        <h4>Happy Christening!</h4>
+        <p>₱50.00</p>
+        <button class="add-to-cart-button" data-name="Happy Christening!"
+          data-price="50.00"> Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/happy teachersday.png" alt="Happy Teacher's Day!">
+        </div>
+        <h4>Happy Teacher's Day!</h4>
+        <p>₱50.00</p>
+        <button class="add-to-cart-button" data-name="Happy Teacher's Day!"
+          data-price="50.00"> Add to Cart</button>
+      </div>
+
+    </div>
+</div>
+
+<div id="Candle Numbers for Cake-section" class="product-section hidden">
+  <h2>Candle Numbers For Cake</h2>
+
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number0.jpg" alt="0">
+      </div>
+      <h4>"0"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="0"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number1.jpg" alt="1">
+      </div>
+      <h4>"1"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="1"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number2.jpg" alt="2">
+      </div>
+      <h4>"2"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="2"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number3.jpg" alt="3">
+      </div>
+      <h4>"3"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="3"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number4.jpg" alt="4">
+      </div>
+      <h4>"4"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="4"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number5.jpg" alt="5">
+      </div>
+      <h4>"5"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="5"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number6.jpg" alt="6">
+      </div>
+      <h4>"6"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="6"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number7.jpg" alt="7">
+      </div>
+      <h4>"7"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="7"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <div class="product_image">
+        <img src="./img/Number8.jpg" alt="8">
+      </div>
+      <h4>"8"</h4>
+      <p>₱10.00</p>
+      <button class="add-to-cart-button" data-name="8"
+        data-price="10.00"> Add to Cart</button>
+    </div>
+
+      <div class="product-card">
+        <div class="product_image">
+          <img src="./img/Number9.jpg" alt="9">
+        </div>
+        <h4>"9"</h4>
+        <p>₱10.00</p>
+        <button class="add-to-cart-button" data-name="9"
+          data-price="10.00"> Add to Cart</button>
+      </div>
+
+  </div>
+</div>
+
+<div class="about_content">
+  <div class="about_image">
+    <img src="./img/logo.png" alt>
+  </div>
+  <div class="about_text">
+    <h1>History of Our Bakery</h1>
+    <p>Pansite Delights began as a dream to bring warmth and joy to every home through delightful baked goods and customized cakes. 
+      Founded in 2024, the bakery started as a small family-owned shop, driven by a passion for creating delicious treats that 
+      celebrate life’s special moments.
+
+      The name "Pansite Delights" was inspired by the community where it was first established. Rooted in tradition and 
+      love for baking, the shop quickly gained recognition for its quality products and exceptional service.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <p>
+        Pansite Delights creates personalized cakes for all occasions, blending tradition
+        with innovation to ensure every bite is memorable. They focus on customer satisfaction 
+        and quality, celebrating life's moments together.
+        
+      </p>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="footer-section newsletter">
+      <h3>Newsletter</h3>
+      <form>
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="social-icons">
+        <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 PanSite Delights. All rights reserved.</p>
+  </div>
+</footer>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
