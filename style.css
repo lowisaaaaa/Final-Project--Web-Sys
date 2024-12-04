@@ -1,4 +1,46 @@
 body {
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.login-container {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.login-container button:hover {
+    background: #0056b3;
+}
   margin: 0;
   padding: 0;
   background-color: #FFDCAA;
@@ -693,75 +735,8 @@ button:disabled {
   color: #ffffff;
 }
 
-.footer-section p,
-.footer-section ul,
-.footer-section form {
-  margin: 0;
-  color: #e4e4e4;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin: 10px 0;
-}
-
-.footer-section ul li a {
-  text-decoration: none;
-  color: #e4e4e4;
-  transition: color 0.3s;
-}
-
-.footer-section ul li a:hover {
-  color: #ffffff;
-}
-
-/* Social Icons */
-.social-icons {
-  margin-top: 20px;
-}
-
-.social-icons .icon {
-  display: inline-block;
-  margin-right: 15px;
-  font-size: 18px;
-  color: #e4e4e4;
-  transition: color 0.3s;
-}
-
-.social-icons .icon:hover {
-  color: #ffffff;
-}
-
-/* Newsletter Section */
-.footer-section.newsletter form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.footer-section.newsletter input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-.footer-section.newsletter button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #f47c26; /* Orange button */
-  color: #ffffff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.footer-section.newsletter button:hover {
-  background-color: #e66a1e; /* Darker orange */
+.footer-section p {
+  text-align: center;
 }
 
 /* Footer Bottom */
