@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #007bff;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .toggle {
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="form-title">Login</h1>
+        <form id="login-form" onsubmit="return handleLogin()">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <select id="role" required>
+                <option value="" disabled selected>Choose Role</option>
+                <option value="admin">Admin</option>
+                <option value="customer">Customer</option>
+            </select>
+            <button type="submit">Login</button>
+        </form>
+        <form id="signup-form" style="display: none;" onsubmit="return handleSignUp()">
+            <input type="text" id="new-username" placeholder="Choose a Username" required>
+            <input type="password" id="new-password" placeholder="Choose a Password" required>
+            <select id="new-role" required>
+                <option value="" disabled selected>Choose Role</option>
+                <option value="customer">Customer</option> <!-- Only customers can sign up -->
+            </select>
+            <button type="submit">Sign Up</button>
+        </form>
+        <button class="toggle" id="toggle-button" onclick="toggleForms()">Don't have an account? Sign Up</button>
+    </div>
+    <script>
+        // Predefined Admin Credentials
+        const predefinedAdmins = [
+            { username: "Louise", password: "123" },
+            { username: "Dazrene", password: "123" },
+            { username: "Kyla", password: "123"  }
+        ];
+
+        // Toggle between Login and Sign Up forms
+        function toggleForms() {
+            const loginForm = document.getElementById("login-form");
+            const signupForm = document.getElementById("signup-form");
+            const formTitle = document.getElementById("form-title");
+            const toggleButton = document.getElementById("toggle-button");
+
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+                formTitle.textContent = "Login";
+                toggleButton.textContent = "Don't have an account? Sign Up";
+            } else {
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+                formTitle.textContent = "Sign Up";
+                toggleButton.textContent = "Already have an account? Login";
+            }
+        }
+
+        // Handle Sign Up submission
+        function handleSignUp() {
+            const newUsername = document.getElementById("new-username").value;
+            const newPassword = document.getElementById("new-password").value;
+            const newRole = document.getElementById("new-role").value;
+
+            // Ensure that only "customer" can sign up
+            if (newRole === "admin") {
+                alert("Admin sign-up is not allowed.");
+                return false;
+            }
+
+            // Retrieve existing users from localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check if the username already exists
+            const existingUser = users.find(user => user.username === newUsername);
+            if (existingUser) {
+                alert("Username already exists. Please choose a different username.");
+                return false;
+            }
+
+            // Save new user to localStorage
+            users.push({ username: newUsername, password: newPassword, role: newRole });
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Sign Up successful! You can now log in.");
+            toggleForms(); // Switch back to login after signup
+            return false;
+        }
+
+        // Handle Login submission
+        function handleLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const role = document.getElementById("role").value;
+
+            if (role === "admin") {
+                // Check against predefined admin credentials
+                const admin = predefinedAdmins.find(admin => admin.username === username && admin.password === password);
+                if (admin) {
+                    alert("Login successful as Admin!");
+                    window.location.href = "admin.html";
+                    return false;
+                }
+            } else if (role === "customer") {
+                // Retrieve users from localStorage
+                const users = JSON.parse(localStorage.getItem("users")) || [];
+                const customer = users.find(user => user.username === username && user.password === password && user.role === "customer");
+
+                if (customer) {
+                    alert("Login successful as Customer!");
+                    window.location.href = "customer.html";
+                    return false;
+                }
+            }
+
+            alert("Invalid username, password, or role.");
+            return false;
+        }
+    </script>
+</body>
+</html>
