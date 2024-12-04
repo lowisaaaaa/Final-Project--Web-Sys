@@ -6,7 +6,6 @@
     <title>PanSite Delights</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
   </head>
   <body>
     
@@ -63,13 +62,14 @@
 
 
 <!-- Bill Display Section -->
-<div id="bill-container" class="modal" >
+<div id="bill-container" class="modal">
   <div class="modal-content">
     <h3>Bill Summary</h3>
-    <p id="bill-name"></p>
-    <p id="bill-datetime"></p>
-    <p id="bill-total"></p>
-    <button onclick="closeBill()" >Close</button>
+    <p id="bill-name"></p> <!-- Customer name -->
+    <p id="bill-datetime"></p> <!-- Pickup Date and Time -->
+    <div id="bill-items"></div> <!-- List of ordered items will appear here -->
+    <p id="bill-total"></p> <!-- Total cost -->
+    <button onclick="closeBill()">Close</button>
   </div>
 </div>
 
@@ -819,9 +819,9 @@
           <img src="./img/hbd.jpg" alt="Happy Birthday!">
         </div>
         <h4>Happy Birthday!</h4>
-        <p>₱1.90</p>
+        <p>₱50.00</p>
         <button class="add-to-cart-button" data-name="Happy Birthday!"
-          data-price="1.90"> Add to Cart</button>
+          data-price="50.00"> Add to Cart</button>
       </div>
 
       <div class="product-card">
@@ -1026,34 +1026,9 @@
       <h3>About Us</h3>
       <p>
         Pansite Delights creates personalized cakes for all occasions, blending tradition
-        with innovation to ensure every bite is memorable. They focus on customer satisfaction 
+        with innovation to ensure </p> <p> that every bite is memorable. Focuses on customer satisfaction 
         and quality, celebrating life's moments together.
-        
       </p>
-    </div>
-
-    <!-- Quick Links Section -->
-    <div class="footer-section">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-      </ul>
-    </div>
-
-    <!-- Newsletter Section -->
-    <div class="footer-section newsletter">
-      <h3>Newsletter</h3>
-      <form>
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
-      </form>
-      <div class="social-icons">
-        <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="icon"><i class="fab fa-linkedin"></i></a>
-      </div>
     </div>
   </div>
 
@@ -1061,8 +1036,7 @@
     <p>&copy; 2024 PanSite Delights. All rights reserved.</p>
   </div>
 </footer>
-      </main>
-    </div>
+
 
     <script src="script.js"></script>
   </body>
