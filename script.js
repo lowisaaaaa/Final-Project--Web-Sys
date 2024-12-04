@@ -1,3 +1,4 @@
+
 // Horizontal slider with arrow buttons
 const slider = document.querySelector('.slider');
 const leftArrow = document.querySelector('.left-arrow');
@@ -143,10 +144,31 @@ function backToCart() {
 }
 
 function generateBill(buyerName, pickupDatetime) {
+  // Display buyer's name and pickup datetime
   document.getElementById('bill-name').textContent = `Name: ${buyerName}`;
   document.getElementById('bill-datetime').textContent = `Pick-up Date and Time: ${new Date(pickupDatetime).toLocaleString()}`;
-  document.getElementById('bill-total').textContent = `Total: ₱${cartTotal.toFixed(2)}`;
 
+  // Get the Bill Items section
+  const billItemsContainer = document.getElementById('bill-items');
+  billItemsContainer.innerHTML = ''; // Clear previous bill items
+
+  let total = 0;
+
+  // Loop through the cart items and create a list in the bill
+  cart.forEach(item => {
+    const itemElement = document.createElement('div');
+    itemElement.classList.add('bill-item');
+    itemElement.innerHTML = `
+      <p>${item.name} - ₱${item.price.toFixed(2)} x ${item.quantity} = ₱${(item.price * item.quantity).toFixed(2)}</p>
+    `;
+    billItemsContainer.appendChild(itemElement);
+    total += item.price * item.quantity;
+  });
+
+  // Display total price in the bill
+  document.getElementById('bill-total').textContent = `Total: ₱${total.toFixed(2)}`;
+
+  // Show the Bill Modal
   document.getElementById('bill-container').style.display = 'flex';
 }
 
@@ -175,4 +197,52 @@ function closeBill() {
 
   // Any other necessary resets or actions can be added here
 }
+
+//for admin
+// Assuming orders is an array of order objects
+orders.forEach((order, index) => {
+  const row = document.createElement('tr');
+  
+  // Prepare the items details string for the bill modal
+  let itemsDetails = '';
+  if (order.items && order.items.length > 0) {
+    // Loop through each item in the order
+    itemsDetails = order.items.map(item => `${item.name} - ₱${item.price.toFixed(2)}`).join('<br>');
+  } else {
+    itemsDetails = "No items";
+  }
+  
+  // Fill the row with the order details
+  row.innerHTML = `
+    <td>${index + 1}</td>
+    <td>${order.customerName || "Unknown"}</td>
+    <td>${order.pickupDate ? new Date(order.pickupDate).toLocaleString() : "No date provided"}</td>
+    <td>${itemsDetails}</td>
+    <td>₱${order.total ? order.total.toFixed(2) : "0.00"}</td>
+  `;
+  
+  // Append the row to the orders list table
+  ordersList.appendChild(row);
+
+  // Now let's update the bill modal based on the order
+  const billContainer = document.getElementById('bill-container');
+  const billName = document.getElementById('bill-name');
+  const billDatetime = document.getElementById('bill-datetime');
+  const billItems = document.getElementById('bill-items');
+  const billTotal = document.getElementById('bill-total');
+  
+  // Set the values for the bill modal
+  billName.textContent = `Customer: ${order.customerName || "Unknown"}`;
+  billDatetime.textContent = `Pick-up Date and Time: ${order.pickupDate ? new Date(order.pickupDate).toLocaleString() : "No date provided"}`;
+  billItems.innerHTML = order.items && order.items.length > 0 ? order.items.map(item => `${item.name} - ₱${item.price.toFixed(2)}`).join('<br>') : "No items";
+  billTotal.textContent = `Total: ₱${order.total ? order.total.toFixed(2) : "0.00"}`;
+
+  // Display the bill modal
+  billContainer.style.display = 'flex';
+});
+
+//admin
+
+
+
 
