@@ -3,55 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel - PanSite Delights</title>
+  <title>Admin Dashboard - PanSite Delights</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 20px;
+    }
+    .bill {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 10px;
       background-color: #f9f9f9;
     }
-
-    header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    h2 {
+    h3 {
       margin-top: 0;
     }
-
     button {
-      padding: 10px 20px;
       margin-right: 10px;
-      border: none;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    #bill-list .bill {
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    ul {
-      padding-left: 20px;
     }
   </style>
 </head>
@@ -61,7 +29,7 @@
   </header>
   <main>
     <section>
-      <h2>All Generated Bills</h2>
+      <h2>Generated Bills</h2>
       <div>
         <button onclick="sortBills()">Sort by Date</button>
         <button onclick="clearBills()">Clear All Bills</button>
@@ -72,10 +40,10 @@
     </section>
   </main>
   <script>
-    // Function to display bills in the admin dashboard
+    // Function to display all bills
     function displayBills(bills) {
       const billListContainer = document.getElementById('bill-list');
-      billListContainer.innerHTML = '';
+      billListContainer.innerHTML = ''; // Clear previous content
 
       if (bills.length === 0) {
         billListContainer.innerHTML = '<p>No bills have been generated yet.</p>';
@@ -85,7 +53,6 @@
       bills.forEach((bill, index) => {
         const billElement = document.createElement('div');
         billElement.classList.add('bill');
-
         billElement.innerHTML = `
           <h3>Bill #${index + 1}</h3>
           <p><strong>Buyer Name:</strong> ${bill.buyerName}</p>
@@ -94,10 +61,8 @@
           <ul>
             ${bill.items
               .map(
-                (item) =>
-                  `<li>${item.name} - ₱${item.price.toFixed(2)} x ${
-                    item.quantity
-                  }</li>`
+                item =>
+                  `<li>${item.name} - ₱${item.price.toFixed(2)} x ${item.quantity}</li>`
               )
               .join('')}
           </ul>
@@ -123,7 +88,7 @@
     // Function to clear all bills
     function clearBills() {
       if (confirm('Are you sure you want to clear all bills?')) {
-        localStorage.removeItem('bills');
+        localStorage.removeItem('bills'); // Remove all bills from localStorage
         loadBills(); // Refresh the list
       }
     }
@@ -131,6 +96,6 @@
     // Load bills on page load
     document.addEventListener('DOMContentLoaded', loadBills);
   </script>
-  <script src="script.js"></script>
 </body>
 </html>
+
